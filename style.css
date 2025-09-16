@@ -1,0 +1,125 @@
+/* style.css */
+
+/* Cores Base */
+:root {
+    --primary-red: #E53935; /* Vermelho vibrante */
+    --dark-red: #B71C1C;    /* Vermelho mais escuro */
+    --primary-black: #212121; /* Preto principal */
+    --light-grey: #424242;    /* Cinza escuro para texto */
+    --background-grey: #303030; /* Fundo para o board */
+    --card-bg: #424242;     /* Fundo dos cards */
+    --text-light: #E0E0E0;  /* Texto claro para contraste */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Sugiro uma fonte moderna */
+    background-color: var(--primary-black); /* Fundo geral preto */
+    color: var(--text-light); /* Cor do texto padrão */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header para a Logo e Título */
+.header {
+    background-color: var(--dark-red); /* Faixa vermelha escura no topo */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha logo à esquerda, título ao centro ou direita */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.header .logo {
+    height: 50px; /* Tamanho da logo */
+    width: auto;
+}
+
+.header h1 {
+    margin: 0;
+    color: white; /* Título em branco para contraste */
+    font-size: 1.8rem;
+    flex-grow: 1; /* Permite que o título ocupe o espaço restante */
+    text-align: center;
+}
+
+/* Board e Colunas */
+.board {
+    display: flex;
+    gap: 1.5rem; /* Aumenta o espaçamento entre as colunas */
+    padding: 1.5rem;
+    overflow-x: auto; /* Permite scroll horizontal se muitas colunas */
+    background-color: var(--background-grey); /* Fundo do board */
+}
+
+.column {
+    background-color: var(--primary-black); /* Fundo das colunas preto */
+    border-radius: 8px; /* Bordas mais arredondadas */
+    padding: 15px;
+    min-width: 300px; /* Largura mínima maior para as colunas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.column h2 {
+    font-size: 1.2rem;
+    margin: 0 0 15px 0;
+    color: var(--primary-red); /* Títulos das colunas em vermelho */
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--dark-red); /* Linha vermelha para destaque */
+    padding-bottom: 8px;
+}
+
+.cards-container {
+    min-height: 80px; /* Altura mínima maior para os containers de cards */
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg); /* Fundo dos cards em cinza escuro */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: grab;
+    color: var(--text-light); /* Texto do card claro */
+    border-left: 5px solid var(--primary-red); /* Borda lateral vermelha */
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px); /* Efeito leve ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card strong {
+    color: var(--primary-red); /* Nome do lead em vermelho */
+    font-size: 1.1em;
+}
+
+.card p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+/* Botão de Adicionar Lead */
+.add-lead-btn {
+    border: none;
+    background: var(--primary-red); /* Botão em vermelho */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.add-lead-btn:hover {
+    background-color: var(--dark-red); /* Escurece no hover */
+}
