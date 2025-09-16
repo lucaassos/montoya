@@ -1,125 +1,155 @@
-/* style.css */
-
-/* Cores Base */
+/* 1. Variáveis de Cor e Tipografia */
 :root {
-    --primary-red: #E53935; /* Vermelho vibrante */
-    --dark-red: #B71C1C;    /* Vermelho mais escuro */
-    --primary-black: #212121; /* Preto principal */
-    --light-grey: #424242;    /* Cinza escuro para texto */
-    --background-grey: #303030; /* Fundo para o board */
-    --card-bg: #424242;     /* Fundo dos cards */
-    --text-light: #E0E0E0;  /* Texto claro para contraste */
+    --brand-red: #D32F2F;        /* Vermelho mais sóbrio e corporativo */
+    --brand-red-dark: #B71C1C;   /* Vermelho escuro para hover e header */
+    --background-dark: #18181B;  /* Cinza muito escuro (mais suave que preto) */
+    --column-bg: #27272A;        /* Cinza para as colunas */
+    --card-bg: #3F3F46;          /* Cinza mais claro para os cards */
+    --text-primary: #F4F4F5;     /* Branco suave para texto principal */
+    --text-secondary: #A1A1AA;   /* Cinza claro para texto secundário */
+    --border-color: #52525B;     /* Cor sutil para bordas */
+    
+    --font-family: 'Inter', sans-serif;
 }
 
-body {
-    font-family: 'Roboto', sans-serif; /* Sugiro uma fonte moderna */
-    background-color: var(--primary-black); /* Fundo geral preto */
-    color: var(--text-light); /* Cor do texto padrão */
+/* 2. Estilos Globais e Reset */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Header para a Logo e Título */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+}
+
+/* 3. Cabeçalho (Header) */
 .header {
-    background-color: var(--dark-red); /* Faixa vermelha escura no topo */
-    padding: 10px 20px;
+    background-color: var(--brand-red-dark);
+    padding: 12px 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Alinha logo à esquerda, título ao centro ou direita */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    gap: 20px;
+    border-bottom: 3px solid var(--brand-red);
 }
 
 .header .logo {
-    height: 50px; /* Tamanho da logo */
-    width: auto;
+    height: 45px;
 }
 
 .header h1 {
-    margin: 0;
-    color: white; /* Título em branco para contraste */
-    font-size: 1.8rem;
-    flex-grow: 1; /* Permite que o título ocupe o espaço restante */
-    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
-/* Board e Colunas */
+/* 4. O Painel (Board) */
 .board {
     display: flex;
-    gap: 1.5rem; /* Aumenta o espaçamento entre as colunas */
-    padding: 1.5rem;
-    overflow-x: auto; /* Permite scroll horizontal se muitas colunas */
-    background-color: var(--background-grey); /* Fundo do board */
+    gap: 1.5rem;
+    padding: 2rem;
+    width: 100%;
+    overflow-x: auto; 
+    min-height: calc(100vh - 74px); 
 }
 
+
 .column {
-    background-color: var(--primary-black); /* Fundo das colunas preto */
-    border-radius: 8px; /* Bordas mais arredondadas */
-    padding: 15px;
-    min-width: 300px; /* Largura mínima maior para as colunas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    background-color: var(--column-bg);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 320px;
+    flex-shrink: 0; 
 }
 
 .column h2 {
-    font-size: 1.2rem;
-    margin: 0 0 15px 0;
-    color: var(--primary-red); /* Títulos das colunas em vermelho */
+    font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
-    border-bottom: 2px solid var(--dark-red); /* Linha vermelha para destaque */
-    padding-bottom: 8px;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
 }
 
 .cards-container {
-    min-height: 80px; /* Altura mínima maior para os containers de cards */
+    min-height: 100px;
 }
 
-/* Cards */
+
 .card {
-    background-color: var(--card-bg); /* Fundo dos cards em cinza escuro */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 12px;
-    margin-bottom: 10px;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
     cursor: grab;
-    color: var(--text-light); /* Texto do card claro */
-    border-left: 5px solid var(--primary-red); /* Borda lateral vermelha */
-    transition: transform 0.2s ease-in-out;
+    border-left: 4px solid var(--brand-red); 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
 }
 
 .card:hover {
-    transform: translateY(-2px); /* Efeito leve ao passar o mouse */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-left-color: #ff5252;
 }
 
 .card:active {
     cursor: grabbing;
+    transform: scale(0.98); 
 }
 
 .card strong {
-    color: var(--primary-red); /* Nome do lead em vermelho */
-    font-size: 1.1em;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .card p {
-    margin: 5px 0 0 0;
-    font-size: 0.9em;
-    color: var(--text-light);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
 }
 
-/* Botão de Adicionar Lead */
+/* 7. Botão de Adicionar */
 .add-lead-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
-    background: var(--primary-red); /* Botão em vermelho */
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
+    background-color: transparent;
+    color: var(--text-secondary);
+    padding: 12px;
+    border-radius: 6px;
     cursor: pointer;
     width: 100%;
-    margin-top: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .add-lead-btn:hover {
-    background-color: var(--dark-red); /* Escurece no hover */
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--card-bg);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color);
 }
