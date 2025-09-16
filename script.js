@@ -1,14 +1,10 @@
-// script.js - Lógica Completa da Aplicação
-
-// --- 1. Configuração do Firebase ---
-// ATENÇÃO: Substitua com as suas credenciais do Firebase
 const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
-    authDomain: "SEU_AUTH_DOMAIN",
-    projectId: "SEU_PROJECT_ID",
-    storageBucket: "SEU_STORAGE_BUCKET",
-    messagingSenderId: "SEU_SENDER_ID",
-    appId: "SEU_APP_ID"
+  apiKey: "AIzaSyCbTDfWU7ucOBsK_UupkVYbQwmhXBOw3So",
+  authDomain: "montoya-9acb3.firebaseapp.com",
+  projectId: "montoya-9acb3",
+  storageBucket: "montoya-9acb3.firebasestorage.app",
+  messagingSenderId: "1157734579",
+  appId: "1:1157734579:web:e08e0beb9e4360c6f810c6"
 };
 
 // Inicializa o Firebase
